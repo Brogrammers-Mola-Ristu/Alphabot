@@ -53,9 +53,10 @@ class AlphaBot(object):
         GPIO.output(self.IN3, GPIO.LOW)
         GPIO.output(self.IN4, GPIO.HIGH)
 
-    def forward(self, speed=30):
+    def forward(self, speed=40):
+        s = speed +1
         self.PWMA.ChangeDutyCycle(speed)
-        self.PWMB.ChangeDutyCycle(speed)
+        self.PWMB.ChangeDutyCycle(s)
         GPIO.output(self.IN1, GPIO.LOW)
         GPIO.output(self.IN2, GPIO.HIGH)
         GPIO.output(self.IN3, GPIO.HIGH)
