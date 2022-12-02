@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 
 class AlphaBot(object):
     
-    
+    # initialization 
     def __init__(self, in1=13, in2=12, ena=6, in3=21, in4=20, enb=26):
         self.IN1 = in1
         self.IN2 = in2
