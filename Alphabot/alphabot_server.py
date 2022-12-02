@@ -53,7 +53,7 @@ def main():
             runCommands(movements, bot)
         elif'q' in movements:
             break
-        else:
+        elif movements in dict_DB:
             runCommands(dict_DB[movements], bot)
     s.close()
 
