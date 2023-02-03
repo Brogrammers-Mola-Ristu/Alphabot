@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <link rel="stylesheet" href='./static/style.css' />
+    </head>
+    <body>
+        <h2>Login</h2>
+        <form class='commands' method="post" action="/">
+            <input   id = 'user' type="text" value="user" placeholder="Username" value="{{request.from.user}}"  />
+            <input  id = 'psw' type="password" value="psw" placeholder="Password" value="{{request.from.psw}}"/>
+            <input class="btn-submit" type="submit" value="login">
+        </form>
+      
+      	
+    </body>
+</html>
