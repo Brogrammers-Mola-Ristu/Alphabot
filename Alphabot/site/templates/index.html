@@ -3,21 +3,16 @@
         <link rel="stylesheet" href='./static/style.css' />
     </head>
     <body>
-        <h2>COMANDI TURTLE</h2>
-        <form class='commands' method="post" action="/">
-            <input   id = 'f' type="submit" value="f" name="BUTTON"/>
-            <input  id = 'b' type="submit" value="b" name="BUTTON"/>
-            <input  id = 'r' type="submit" value="r" name="BUTTON"/>
-            <input  id = 'l'type="submit" value="l" name="BUTTON"/>
-            <input  id = 's'type="submit" value="s" name="BUTTON"/>
-            <br>
-            <input  id = 'rt' type="submit" value="rt" name="BUTTON"/>
-            <input  id = 'lt'type="submit" value="lt" name="BUTTON"/>
-            <input  id = 'sl'type="submit" value="sl" name="BUTTON"/>
-            <input  id = 'sr'type="submit" value="sr" name="BUTTON"/>
+        <h2>Login</h2>
+        <form class='commands' method="post" action="">
+            <input  name = "user" id = 'user' type="text" placeholder="Username" value="{{request.form.user}}"  />
+            <input  name = "psw" id = 'psw' type="password"  placeholder="Password" value="{{request.form.psw}}"/>
+            <input class="btn-submit" type="submit" value="login">
 
+            {%if error%}
+            <p class="error"><strong>Error:</strong></p>
+            {{error}}
+            {% endif %}
         </form>
-      
-      	
     </body>
 </html>

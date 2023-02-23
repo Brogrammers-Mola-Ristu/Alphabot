@@ -12,8 +12,8 @@ class AlphaBot(object):
         self.IN4 = in4
         self.ENA = ena
         self.ENB = enb
-        self.PA  = 50
-        self.PB  = 50
+        self.PA  = 80
+        self.PB  = 80
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -53,10 +53,9 @@ class AlphaBot(object):
         GPIO.output(self.IN3, GPIO.LOW)
         GPIO.output(self.IN4, GPIO.HIGH)
 
-    def forward(self, speed=40):
-        s = speed +1
-        self.PWMA.ChangeDutyCycle(speed)
-        self.PWMB.ChangeDutyCycle(s)
+    def forward(self):
+        self.PWMA.ChangeDutyCycle(self.PA)
+        self.PWMB.ChangeDutyCycle(self.PB)
         GPIO.output(self.IN1, GPIO.LOW)
         GPIO.output(self.IN2, GPIO.HIGH)
         GPIO.output(self.IN3, GPIO.HIGH)
