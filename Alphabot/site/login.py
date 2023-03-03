@@ -6,7 +6,6 @@ app = Flask(__name__)
 bot = alphabot.AlphaBot()
 bot.stop()
 site_access = ''.join(random.choice('qwertyuiop1a2s3d4f5gh6j7k8l90')for i in range(20))
-print(site_access)
 
 def readDB():
     # Return the list of motion commands
@@ -49,7 +48,6 @@ def validate(username, password):
     for row in rows:
         dbUser = row[0]
         dbPass = row[1]
-        print(dbPass)
         if dbUser==username:
             completion=check_password(dbPass, password)
     return completion
@@ -63,10 +61,8 @@ def login():
     error = None
     if request.method == 'POST':
         username = request.form.get('user')
-        print(username)
         password = request.form.get('psw')
         password = hashlib.sha256(password.encode()).hexdigest()
-        print(password)
         completion = validate(username, password)
         
         if completion == False:
@@ -82,7 +78,6 @@ def login():
 
 def webapp():
     if request.method == 'POST' :
-        print(dict_DB[request.form.get('BUTTON')])
         runCommands(dict_DB[request.form.get('BUTTON')],bot)
     elif request.method == 'GET':
         return render_template('webapp.html')
